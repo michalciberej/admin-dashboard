@@ -6,8 +6,10 @@
 
 :root {
     --lightBlueClr: #0284c7;
+    --darkBlueClr: #082f49;
     --orangeClr: #fb923c;
-    --grayClr: #e2e8f0;
+    --lightGrayClr: #e2e8f0;
+    --darkGrayClr: #0f172a;
     --whiteClr: #f8fafc;
     --filterSettings: invert(84%) sepia(53%) saturate(0%) hue-rotate(274deg) brightness(110%) contrast(101%);
     --filterSettingsBlack: invert(0%) sepia(93%) saturate(0%) hue-rotate(284deg) brightness(107%) contrast(107%);
@@ -31,7 +33,7 @@ body {
     display: grid;
     grid-template-columns: minmax(200px, 1fr);
     grid-template-rows: 75px 300px 100px;
-    color: white;
+    color: var(--whiteClr);
     row-gap: 20px;
     padding: 30px;
     font-size: 1.2rem;
@@ -95,7 +97,7 @@ svg {
 input[type=search] {
     border-radius: 15px;
     flex: 1;
-    background: var(--grayClr);
+    background: var(--lightGrayClr);
     border: none;
     min-height: 2.5em;
     padding-left: 15px;
@@ -142,7 +144,7 @@ input:focus {
 
 #header > div:nth-child(4) > button {
     background: var(--lightBlueClr);
-    color: white;
+    color: var(--whiteClr);
     padding: 0.5em 1.5em;
     border: none;
     border-radius: 15px;
@@ -165,7 +167,7 @@ input:focus {
 #main {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    background-color: var(--grayClr);
+    background-color: var(--lightGrayClr);
     padding: 25px 10px 25px 30px;
 }
 
@@ -177,7 +179,7 @@ input:focus {
 }
 
 .content {
-    background: white;
+    background: var(--whiteClr);
     padding: 20px;
     border-left: 5px solid var(--orangeClr);
     border-radius: 5px;
@@ -187,7 +189,7 @@ input:focus {
 }
 
 #sideMain {
-    background: var(--grayClr);
+    background: var(--lightGrayClr);
     grid-column: 3 / 4;
     grid-row: 2 / 3;
     padding: 25px 30px 25px 10px;
@@ -201,7 +203,7 @@ input:focus {
 }
 
 #announcements{
-    background: white;
+    background: var(--whiteClr);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 2px 2px 3px grey;
@@ -228,7 +230,7 @@ input:focus {
 }
 
 #trending {
-    background: white;
+    background: var(--whiteClr);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 2px 2px 3px grey;
@@ -272,4 +274,21 @@ img {
 
 #header > div > div {
     margin-left: 10px;
+}
+
+#bell::before {
+    content: '3';
+    display: flex;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: red;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 1px 0 0 0;
+    position: relative;
+    left: -45px;
+    top: -2px;
+    font-size: 0.9rem;
 }
