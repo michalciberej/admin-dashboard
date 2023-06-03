@@ -6,6 +6,7 @@
 
 :root {
     --lightBlueClr: #0284c7;
+    --orangeClr: #fb923c;
     --grayClr: #e2e8f0;
     --whiteClr: #f8fafc;
     --filterSettings: invert(84%) sepia(53%) saturate(0%) hue-rotate(274deg) brightness(110%) contrast(101%);
@@ -18,7 +19,7 @@ html {
 
 body {
     display: grid;
-    grid-template-columns: 1fr 10fr;
+    grid-template-columns: 1fr 6fr 2fr;
     grid-template-rows: 1fr 4fr;
     height: 100vh;
 }
@@ -29,12 +30,11 @@ body {
     background-color: var(--lightBlueClr);
     display: grid;
     grid-template-columns: minmax(200px, 1fr);
-    grid-template-rows: 75px 3fr 5fr;
+    grid-template-rows: 75px 300px 100px;
     color: white;
     row-gap: 20px;
     padding: 30px;
     font-size: 1.2rem;
-    z-index: 1;
 }
 
 svg {
@@ -57,6 +57,7 @@ svg {
     display: flex;
     flex-direction: row;
     align-items: center;
+    cursor: pointer;
 }
 
 .logo {
@@ -66,17 +67,16 @@ svg {
     flex-direction: row;
 }
 
-
 #header {
-    grid-column: 2 / 3;
+    grid-column: 2 / 4;
     grid-row: 1 / 2;
     background-color: var(--whiteClr);
-    box-shadow: 0px 1px 3px 1px #94a3b8;
-    z-index: -1;
+    box-shadow: 0px 1px 3px 1px #94a3b8 ;
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 4fr 2fr;
     grid-template-rows: minmax(50px, 1fr) minmax(50px, 1fr);
     padding: 10px;
+    position: relative;
 }
 
 #header > div:nth-child(1){
@@ -98,10 +98,15 @@ input[type=search] {
     background: var(--grayClr);
     border: none;
     min-height: 2.5em;
+    padding-left: 15px;
 }
 
 input:hover {
-    border: 1px solid black;    
+    outline: 2px solid var(--orangeClr);    
+}
+
+input:focus {
+    outline: 2px solid var(--orangeClr);    
 }
 
 #header > div:nth-child(2) {
@@ -126,9 +131,145 @@ input:hover {
     height: 3em;
 }
 
+
+#header > div:nth-child(4) {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 30px;
+    padding-right: 30px;
+}
+
+#header > div:nth-child(4) > button {
+    background: var(--lightBlueClr);
+    color: white;
+    padding: 0.5em 1.5em;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#header > div:nth-child(4) > button:hover {
+    background: var(--orangeClr);
+}
+
+#header > div:nth-child(4) > button:focus {
+    background: var(--orangeClr);
+    outline: none;
+}
+
+.iconLink:hover {
+    border-bottom: 2px solid var(--orangeClr);
+}
+
 #main {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     background-color: var(--grayClr);
-    z-index: -2;
+    padding: 25px 10px 25px 30px;
+}
+
+#mainContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 15px 0px;
+}
+
+.content {
+    background: white;
+    padding: 20px;
+    border-left: 5px solid var(--orangeClr);
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px grey;
+    display: grid;
+    grid-template-rows: 30px 1fr 30px;
+}
+
+#sideMain {
+    background: var(--grayClr);
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    padding: 25px 30px 25px 10px;
+    display: grid;
+    grid-template-rows: minmax(200px, 1fr) minmax(200px, 1fr);
+    grid-template-columns: minmax(150px, 1fr);
+}
+
+#sideMain > div > h4 {
+    margin-bottom: 15px;
+}
+
+#announcements{
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px grey;
+    margin-bottom: 30px;
+}
+
+#announcements > h5 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.heading {
+    margin-bottom: 5px;
+}
+
+.text {
+    font-size: 0.8rem;
+    color: #292524;
+}
+
+.hr {
+    margin: 10px 0;
+    border: 1px solid #CCC
+}
+
+#trending {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px grey;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 15px 5px;
+}
+
+#trending > h5 {
+    font-size: 1rem;
+    margin: 25px 0 5px 0;
+}
+
+#trending > div {
+    justify-self: start;
+    align-self: center;
+}
+
+.svgBar {
+    align-self: end;
+    justify-self: end;
+}
+
+.svgBar > svg {
+    filter: var(--filterSettingsDark);
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    align-self: center ;
+    justify-content: center;
+}
+
+#header > div:nth-child(3) {
+    display: flex;
+    margin-left: 20px;
+    align-items: center;
+}
+
+#header > div > div {
+    margin-left: 10px;
 }
